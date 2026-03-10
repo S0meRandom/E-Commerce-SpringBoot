@@ -41,6 +41,31 @@
             align-items: center;
             gap: 8px;
         }
+        #product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+            gap: 25px;
+            padding: 40px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+
+        }
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+        }
+        .product-card:hover{
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            border-color: #cbd5e1;
+        }
+
     </style>
 </head>
 <body>
