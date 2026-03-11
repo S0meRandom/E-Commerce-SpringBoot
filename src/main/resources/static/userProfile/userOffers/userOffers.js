@@ -37,6 +37,7 @@ function renderOffers(userOffers){
         <h3>${offer.name}</h3>
         <p>Cena: ${offer.price} zł</p>
         <p>${offer.description}</p>
+        <button onclick="deleteProduct(${offer.id})">Usuń Oferte</button>
         </div>`;
 
         container.innerHTML += productHTML;
