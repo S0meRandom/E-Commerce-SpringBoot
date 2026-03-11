@@ -12,6 +12,9 @@ public class AppUser {
     @Column(unique=true,nullable=false)
     private String username;
 
+    @Column(unique=true,nullable=false)
+    private String email;
+
     @Column(nullable=false)
     private String password;
 
@@ -26,10 +29,15 @@ public class AppUser {
     }
     public void setUsername(String newUsername){
         this.username = newUsername;
-
     }
     public void setPassword(String newPassword){
         this.password = newPassword;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public void setEmail(String newEmail){
+        this.email = newEmail;
     }
 
 

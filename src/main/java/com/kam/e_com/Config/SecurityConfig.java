@@ -17,16 +17,25 @@ public class SecurityConfig {
         http.
                 csrf(csrf->csrf.disable())
                 .authorizeHttpRequests(auth->auth
-                        .requestMatchers("/login.html","/login.js","/register.html","/register.js","/api/auth/register")
+                        .requestMatchers(
+                                "/",
+                                "/index/**",
+                                "/login/**",
+                                "/register/**",
+                                "/add-product/**",
+                                "/userProfile/**",
+                                "/product-page/**"
+                        )
                         .permitAll().anyRequest().authenticated())
+
                 .formLogin(form->form
-                        .loginPage("/login.html")
+                        .loginPage("/login/login.html")
                         .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/index.html",true)
-                        .failureUrl("/login.html")
+                        .defaultSuccessUrl("/index/index.html",true)
+                        .failureUrl("/login/login.html")
                         .permitAll())
                 .logout(logout-> logout
-                        .logoutSuccessUrl("/login.html")
+                        .logoutSuccessUrl("/login/login.html")
                         .permitAll());
         return http.build();
 

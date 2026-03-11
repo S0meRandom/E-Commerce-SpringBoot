@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Sklep</title>
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="header-left">
+        <h1>Sklep Internetowy</h1>
+        <span>Koszyk: <strong id="cart-count">0</strong> przedmiotów</span>
+        <button onclick="accessCart()">Zobacz Koszyk</button>
+        <button onclick="addProduct()">Dodaj produkt do sklepu</button>
+
+    </div>
+    <div class="header-right">
+        <button id="prof-btn" onclick="accessProfile()">Profil Użytkownika</button>
+    </div>
+</header>
+<div id="product-grid"></div>
+<script src="index.js"></script>
+</body>
+</html>

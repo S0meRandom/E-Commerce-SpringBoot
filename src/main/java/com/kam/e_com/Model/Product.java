@@ -27,6 +27,10 @@ public class Product {
     @Column(name="image_url")
     private String imageUrl;
 
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private AppUser seller;
+
     public String getName() {
         return name;
     }
@@ -74,4 +78,11 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
+    public AppUser getSeller(){
+        return seller;
+    }
+    public void setSeller(AppUser currentSeller){
+        this.seller = currentSeller;
+    }
+
 }
