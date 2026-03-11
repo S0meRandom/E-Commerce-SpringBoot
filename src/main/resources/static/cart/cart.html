@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Twój Koszyk - Sklep</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+<header>
+    <div class="header-left">
+        <h1 onclick="location.href='/index/index.html'" style="cursor:pointer">Sklep Internetowy</h1>
+    </div>
+    <div class="header-right">
+        <button class="btn-secondary" onclick="location.href='/index/index.html'">Kontynuuj zakupy</button>
+    </div>
+</header>
+
+<main class="cart-container">
+    <h2>Twój Koszyk</h2>
+
+    <div class="cart-wrapper">
+        <div id="cart-items-list" class="cart-items-list">
+            <p class="loading">Ładowanie produktów...</p>
+        </div>
+
+        <aside class="cart-summary">
+            <h3>Podsumowanie</h3>
+            <div class="summary-row">
+                <span>Wartość produktów:</span>
+                <span id="subtotal">0.00 zł</span>
+            </div>
+            <div class="summary-row">
+                <span>Dostawa:</span>
+                <span id="shipping">15.00 zł</span>
+            </div>
+            <hr>
+            <div class="summary-row total">
+                <span>Suma:</span>
+                <span id="grand-total">0.00 zł</span>
+            </div>
+            <button class="btn-checkout" onclick="proceedToCheckout()">Przejdź do kasy</button>
+        </aside>
+    </div>
+</main>
+
+<script src="cart.js"></script>
+</body>
+</html>

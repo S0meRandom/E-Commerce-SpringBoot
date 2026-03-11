@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Wystaw przedmiot</title>
+    <link href="add-product.css" rel="stylesheet">
+</head>
+<body>
+<div class="register-card">
+    <h2>Wystaw na sprzedaż</h2>
+    <p>Wypełnij dane, aby dodać przedmiot do sklepu</p>
+    <div id="msg"></div>
+
+    <form id="add-product-form">
+        <div class="form-group">
+            <label>Nazwa produktu</label>
+            <input type="text" id="name" placeholder="np. Klawiatura mechaniczna" required>
+        </div>
+        <div class="form-group">
+            <label>Cena (PLN)</label>
+            <input type="number" step="0.01" id="price" placeholder="0.00" required>
+        </div>
+        <div class="form-group">
+            <label>Opis przedmiotu</label>
+            <textarea id="description" placeholder="Opisz swój przedmiot..."></textarea>
+        </div>
+        <div class="form-group">
+            <label>Ilość przedmiotów</label>
+            <input type="number" id="stock_quantity" placeholder="Podaj ilość przedmiotów"></input>
+        </div>
+        <button type="submit" class="btn-register">Wystaw przedmiot</button>
+    </form>
+
+    <div class="footer">
+        <a href="../index/index.html">← Wróć do sklepu</a>
+    </div>
+</div>
+<script src="add-product.js"></script>
+</body>
+</html>

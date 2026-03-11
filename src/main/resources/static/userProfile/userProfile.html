@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Twój Profil - Sklep</title>
+  <link rel="stylesheet" href="userProfile.css"> </head>
+<body>
+<header>
+  <div class="header-left">
+    <h1 onclick="location.href='/index/index.html'" style="cursor:pointer">Sklep Internetowy</h1>
+  </div>
+  <div class="header-right">
+    <button class="btn-secondary" onclick="location.href='/index/index.html'">Wróć do sklepu</button>
+  </div>
+</header>
+
+<div class="profile-container">
+  <div class="profile-card">
+    <div class="profile-banner"></div>
+    <div class="profile-content">
+      <div class="avatar-circle">
+        <span id="user-initials">JK</span>
+      </div>
+      <h2 id="profile-username">DefaultUser</h2>
+      <p id="profile-email">Default@gmail.pl</p>
+
+      <div class="profile-stats">
+        <div class="stat-item">
+          <span class="stat-value" id="count-items">0</span>
+          <span class="stat-label">Aktywne oferty</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="sold-items">12</span>
+          <span class="stat-label">Sprzedane</span>
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <button class="btn-action" onclick="location.href='/add-product/add-product.html'">Wystaw nowy przedmiot</button>
+        <button class="btn-outline" onclick="accessUserOffers()">Zarządzaj moimi ofertami</button>
+        <button class="btn-logout" onclick="logout()">Wyloguj się</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="userProfile.js"></script>
+</body>
+</html>

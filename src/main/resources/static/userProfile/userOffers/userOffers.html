@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Moje Oferty - Panel Sprzedawcy</title>
+    <link rel="stylesheet" href="userOffers.css">
+</head>
+<body>
+<nav class="navbar">
+    <h1 onclick="location.href='/index/index.html'">E-COM</h1>
+    <div class="nav-links">
+        <a href="/index/index.html">Sklep</a>
+        <a href="/userProfile/profile.html">Profil</a>
+        <button class="logout-btn" onclick="logout()">Wyloguj</button>
+    </div>
+</nav>
+
+<main class="dashboard">
+    <header class="dashboard-header">
+        <div>
+            <h1>Twoje Produkty</h1>
+            <p>Zarządzaj swoimi aktywnymi ogłoszeniami</p>
+        </div>
+        <button class="add-btn" onclick="location.href='/add-product/add-product.html'">
+            + Dodaj nowy produkt
+        </button>
+    </header>
+
+    <section class="stats">
+        <div class="stat-card">
+            <span class="stat-label">Aktywne oferty</span>
+            <span id="count-value" class="stat-number">0</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Łączna wartość</span>
+            <span id="total-price" class="stat-number">0.00 zł</span>
+        </div>
+    </section>
+
+    <div id="offers-list" class="offers-list">
+        <div class="loader">Pobieranie Twoich ofert...</div>
+    </div>
+</main>
+
+<script src="userOffers.js"></script>
+</body>
+</html>
