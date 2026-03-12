@@ -2,9 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Strona produktu</title>
+    <link href="product-page.css" rel="stylesheet">
 </head>
 <body>
+<header>
+    <div class="header-left">
+        <h1>Produkt</h1>
+        <button onclick="location.href='/index/index.html'">Powróć do sklepu</button>
+    </div>
+</header>
+<main class="product-page">
+    <div class="product-container">
+        <div class="image-section">
+            <img id="image" src="" alt="ładowanie">
+        </div>
+        <div class="info-section">
+            <div class="product-name">
+                <h1 id="product-name">Produkt</h1>
+            </div>
+            <div class="product-price">
+                <h2 id="product-price">Cena: </h2>
+            </div>
+            <div class="product-seller">
+                <h2 id="product-seller">Sprzedawca: </h2>
+            </div>
+            <div class="product-stock">
+                <h2 id="product-stock">Dostępna ilość: </h2>
+            </div>
+            <div class="product-description">
+                <h2>Opis Produktu:</h2>
+                <p id="product-description">Opis produktu</p>
+            </div>
+            <button class="cart-btn">Dodaj do koszyka</button>
+        </div>
+    </div>
 
+<script src="product-page.js"></script>
+</main>
 </body>
 </html>

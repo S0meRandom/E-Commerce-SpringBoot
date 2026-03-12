@@ -24,6 +24,7 @@ public class SecurityConfig {
                                 "/register/**",
                                 "/add-product/**",
                                 "/userProfile/**",
+                                "/product-page/**",
                                 "/product-page/**"
                         )
                         .permitAll().anyRequest().authenticated())

@@ -49,7 +49,7 @@ async function deleteProduct(id) {
 
     const res = await fetch(`/api/products/${id}`, { method: 'DELETE' });
     if (res.ok) {
-        document.getElementById(`prod-${id}`).remove();
+        alert("Pomyślnie usunięto ofertę");
 
     } else {
         alert("Błąd podczas usuwania produktu.");

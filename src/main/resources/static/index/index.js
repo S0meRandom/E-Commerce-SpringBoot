@@ -18,6 +18,7 @@ function displayProducts(products){
         <div style="display: flex; justify-content: space-between; align-items:center"></div>
             <span class="price">${product.price} PLN</span>
             <button onclick="addToCart(${product.id})">Dodaj do koszyka</button> 
+            <button onclick="location.href='/product-page/product-page.html?id=${product.id}'">Zobacz</button>
         `;
         grid.appendChild(card);
     });
