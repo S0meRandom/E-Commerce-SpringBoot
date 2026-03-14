@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/cart")
@@ -29,6 +30,14 @@ public class CartController {
     public void addProductToCart(@RequestParam("productId") Long Id, Principal principal){
         Product product = productRepository.findById(Id).orElseThrow();
         AppUser user = userRepository.findByUsername(principal.getName()).orElseThrow();
+        Optional<CartItem> ifexist = cartRepository.findByUserAndProduct(user,product);
+        if(ifexist.isPresent()){
+            CartItem exist = ifexist.get();
+            exist.setQuantity(exist.getQuantity()+1);
+            cartRepository.save(exist);
+        }
+
+
 
         CartItem newItem = new CartItem();
         newItem.setProduct(product);
