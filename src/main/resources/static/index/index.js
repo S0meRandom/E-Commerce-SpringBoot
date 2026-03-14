@@ -23,19 +23,29 @@ function displayProducts(products){
         grid.appendChild(card);
     });
 }
-function addToCart(product) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+async function addToCart(productId) {
+    try {
+
+        const response = await fetch(`/api/cart/add?productId=${productId}`, {
+            method: 'POST'
+        });
 
 
-    const existing = cart.find(p => p.id === product.id);
-    if(existing) {
-        existing.quantity += 1;
-    } else {
-        cart.push({...product, quantity: 1});
+        if (response.ok) {
+
+            alert("Dodano do koszyka.");
+        } else if (response.status === 401 || response.status === 403) {
+
+            alert("Musisz być zalogowany, aby dodać produkt do koszyka!");
+
+        } else {
+
+            alert("Coś poszło nie tak.");
+            console.error("Błąd serwera:", response.status);
+        }
+    } catch (error) {
+        console.error("Błąd zapytania fetch:", error);
     }
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert("Dodano do koszyka!");
 }
 async function addProduct(){
     window.location.href="/add-product/add-product.html";

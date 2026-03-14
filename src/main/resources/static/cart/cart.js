@@ -1,56 +1,48 @@
-document.addEventListener('DOMContentLoaded', () => {
-    renderCart();
-});
 
-function renderCart() {
+async function fetchCartProducts(){
 
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const response = await fetch("/api/cart");
+        const products = await response.json();
+        renderCart(products);
+
+}
+
+function renderCart(products) {
     const container = document.getElementById('cart-items-list');
+    const subtotal = document.getElementById('subtotal');
+    const grandTotal = document.getElementById('grand-total');
+    const shippingFee = 15;
 
-    if (cart.length === 0) {
+    if (products.length === 0) {
         container.innerHTML = "<h3>Twój koszyk jest pusty.</h3>";
-        updateTotals(0);
+        subtotal.innerText = "0.00 zł";
+        grandTotal.innerText = "0.00 zł";
         return;
     }
+    let totalSum = 0;
 
     container.innerHTML = '';
-    let subtotal = 0;
+    products.forEach(item => {
+        const product = item.product;
+        const itemTotal = product.price* item.quantity;
+        totalSum += itemTotal;
 
-    cart.forEach((item, index) => {
-        subtotal += item.price * item.quantity;
+
         container.innerHTML += `
             <div class="cart-product">
-                <img src="${item.image || '/placeholder.png'}" alt="">
+                <img src="${product.image || '/placeholder.png'}" alt="">
                 <div class="product-details">
-                    <h4>${item.name}</h4>
-                    <p>${item.price} zł</p>
+                    <h4>${product.name}</h4>
+                    <p>${product.price} zł</p>
                 </div>
-                <div class="quantity-controls">
-                    <button onclick="changeQty(${index}, -1)">-</button>
-                    <span>${item.quantity}</span>
-                    <button onclick="changeQty(${index}, 1)">+</button>
-                </div>
-                <div class="item-total">${(item.price * item.quantity).toFixed(2)} zł</div>
+                <div>Ilość: ${item.quantity}</div>
             </div>
         `;
     });
 
-    updateTotals(subtotal);
+    subtotal.innerText = `${totalSum} zł`;
+    grandTotal.innerHTML = `${totalSum+15} zł`;
+
+
 }
-
-function changeQty(index, delta) {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    cart[index].quantity += delta;
-
-    if (cart[index].quantity <= 0) {
-        cart.splice(index, 1);
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-    renderCart();
-}
-
-function updateTotals(subtotal) {
-    const shipping = subtotal > 0 ? 15.00 : 0;
-    document.getElementById('subtotal').innerText = subtotal.toFixed(2) + " zł";
-    document.getElementById('grand-total').innerText = (subtotal + shipping).toFixed(2) + " zł";
-}}
+document.addEventListener('DOMContentLoaded', fetchCartProducts);
