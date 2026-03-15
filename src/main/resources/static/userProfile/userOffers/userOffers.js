@@ -19,6 +19,9 @@ async function fetchUserOffers(user_id){
         const response = await fetch(`/api/products/seller/${user_id}`)
         if(response.ok){
             const userOffers = await response.json();
+            const userOffersCount = userOffers.length;
+            document.getElementById('count-value').innerText = userOffersCount;
+            document.getElementById('total-price').innerText = `${calculateValue(userOffers)} zł`;
             renderOffers(userOffers);
         }
 
@@ -38,6 +41,7 @@ function renderOffers(userOffers){
         <p>Cena: ${offer.price} zł</p>
         <p>${offer.description}</p>
         <button onclick="deleteProduct(${offer.id})">Usuń Oferte</button>
+        <button onclick="location.href='/product-page/product-page.html?id=${offer.id}'">Zobacz Oferte</button>
         </div>`;
 
         container.innerHTML += productHTML;
@@ -59,3 +63,11 @@ async function deleteProduct(id) {
 document.addEventListener("DOMContentLoaded", ()=>{
     getUserData();
 });
+function calculateValue(offers){
+    let sum = 0;
+    offers.forEach(offer=>{
+        sum += offer.price;
+
+    })
+    return sum;
+}

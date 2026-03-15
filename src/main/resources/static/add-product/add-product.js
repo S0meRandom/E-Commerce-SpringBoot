@@ -22,7 +22,7 @@ document.getElementById('add-product-form').addEventListener('submit', async (e)
             msgDiv.className = "alert-success";
             msgDiv.innerText = "Produkt został pomyślnie wystawiony!";
             document.getElementById('add-product-form').reset();
-            setTimeout(() => window.location.href = 'index.html', 2000);
+            setTimeout(() => window.location.href = '/index/index.html', 2000);
         } else {
             msgDiv.className = "alert-notsuccess";
             msgDiv.innerText = "Błąd: Nie udało się dodać produktu.";
