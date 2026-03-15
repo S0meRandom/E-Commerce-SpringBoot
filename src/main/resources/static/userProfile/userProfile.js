@@ -14,4 +14,23 @@ async function getUserData(){
 function accessUserOffers(){
     window.location.href = "/userProfile/userOffers/userOffers.html";
 }
+async function logout() {
+    try {
+        const response = await fetch('/api/logout', {
+            method: 'POST'
+        });
+        if(response.ok){
+            localStorage.clear();
+            sessionStorage.clear();
+            window.location.href="/login/login.html";
+
+        }else{
+            alert("Błąd wylogowania");
+        }
+
+    } catch (error) {
+        alert("Błąd sieci: " + error)
+    }
+
+}
 getUserData();

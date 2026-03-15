@@ -48,7 +48,17 @@ public class CartController {
 
     }
     @GetMapping()
-    public List<CartItem> getCartProduct(Principal principal){
+    public List<CartItem> getCartProduct(Principal principal) {
         AppUser user = userRepository.findByUsername(principal.getName()).orElseThrow();
         return cartRepository.findByuser(user);
-}}
+    }
+
+    @PutMapping("/{id}")
+    public CartItem updateCartQuantity(@PathVariable Long id,@RequestParam int newQuantity){
+        CartItem cartItem = cartRepository.findById(id).orElseThrow();
+        cartItem.setQuantity(newQuantity);
+        return cartRepository.save(cartItem);
+
+
+    }
+}

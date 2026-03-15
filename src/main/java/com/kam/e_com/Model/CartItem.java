@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long Id;
+    long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -34,7 +34,7 @@ public class CartItem {
         this.product = nProduct;
     }
     public Long getId(){
-        return Id;
+        return id;
     }
     public int getQuantity(){
         return quantity;

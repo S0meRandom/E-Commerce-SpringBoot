@@ -35,13 +35,33 @@ function renderCart(products) {
                     <h4>${product.name}</h4>
                     <p>${product.price} zł</p>
                 </div>
-                <div>Ilość: ${item.quantity}</div>
+                <div id="quantity">Ilość: ${item.quantity}</div>
+                <button id="plus-quantity" onclick="changeQuantity(${item.id},${item.quantity+1})">+</button>
+                <button id="minus-quantity" onclick="changeQuantity(${item.id},${item.quantity-1})">-</button>
             </div>
         `;
     });
 
     subtotal.innerText = `${totalSum} zł`;
     grandTotal.innerHTML = `${totalSum+15} zł`;
+
+
+}
+async function changeQuantity(id,newQuantity){
+    try{
+        const response = await fetch(`/api/cart/${id}?newQuantity=${newQuantity}`,{
+            method: 'PUT'
+        });
+        if (response.ok) {
+            fetchCartProducts();
+        } else {
+            console.error("Błąd podczas aktualizacji koszyka");
+        }
+
+
+    }catch(error){
+        alert("Błąd połączenia: " + error)
+    }
 
 
 }

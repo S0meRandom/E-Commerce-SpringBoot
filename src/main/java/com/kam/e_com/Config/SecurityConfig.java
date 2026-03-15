@@ -1,5 +1,6 @@
 package com.kam.e_com.Config;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,13 +20,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth->auth
                         .requestMatchers(
                                 "/",
-                                "/index/**",
                                 "/login/**",
                                 "/register/**",
-                                "/add-product/**",
-                                "/userProfile/**",
-                                "/product-page/**",
-                                "/product-page/**"
+                                "/css/**",
+                                "/js/**",
+                                "/images/**"
                         )
                         .permitAll().anyRequest().authenticated())
 
@@ -37,7 +36,13 @@ public class SecurityConfig {
                         .permitAll())
                 .logout(logout-> logout
                         .logoutSuccessUrl("/login/login.html")
-                        .permitAll());
+                        .logoutUrl("/api/logout")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                        .logoutSuccessHandler((request, response, authentication) -> {
+                    response.setStatus(HttpServletResponse.SC_OK);
+                })
+                );
         return http.build();
 
     }

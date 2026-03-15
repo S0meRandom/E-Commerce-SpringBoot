@@ -3,6 +3,20 @@ async function fetchProducts(){
     const products = await response.json();
     displayProducts(products);
 }
+async function fetchCartItems(){
+    const response = await fetch('/api/cart');
+
+    if (!response.ok) {
+        document.getElementById('cart-count').innerText = "0";
+        return;
+    }
+    const cartItems = await response.json();
+
+    let cartCount = cartItems.length;
+
+    document.getElementById('cart-count').innerText = cartCount;
+
+}
 
 function displayProducts(products){
     const grid = document.getElementById('product-grid');
@@ -24,6 +38,7 @@ function displayProducts(products){
     });
 }
 async function addToCart(productId) {
+
     try {
 
         const response = await fetch(`/api/cart/add?productId=${productId}`, {
@@ -57,3 +72,4 @@ async function accessCart(){
     window.location.href="/cart/cart.html";
 }
 fetchProducts();
+fetchCartItems();
