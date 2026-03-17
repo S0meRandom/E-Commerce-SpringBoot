@@ -57,7 +57,11 @@ public class OrderController {
         cartRepository.deleteAll(cartItems);
         return createdOrders;
 
-
+    }
+    @GetMapping
+    public List<Order> getUserOrders(Principal principal){
+        AppUser user = userRepository.findByUsername(principal.getName()).orElseThrow();
+        return orderRepository.findBybuyerId(user.getId());
 
 
     }

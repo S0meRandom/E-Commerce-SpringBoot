@@ -3,6 +3,7 @@ async function getUserData(){
         const response = await fetch("/api/auth/me")
         if(response.ok){
             const userData = await response.json();
+            fetchUserOffers(userData.id);
 
             document.getElementById('profile-username').innerText = userData.username;
             document.getElementById('profile-email').innerText = userData.email;
@@ -33,4 +34,22 @@ async function logout() {
     }
 
 }
+async function fetchUserOffers(user_id){
+    try{
+        const response = await fetch(`/api/products/seller/${user_id}`)
+        if(response.ok){
+            const userOffers = await response.json();
+            const userOffersCount = userOffers.length;
+            document.getElementById('count-items').innerText = userOffersCount;
+        }
+
+    }catch(error){
+
+    }
+
+}
+function accessUserOrders(){
+    window.location.href="userOrders/userOrders.html";
+}
+
 getUserData();

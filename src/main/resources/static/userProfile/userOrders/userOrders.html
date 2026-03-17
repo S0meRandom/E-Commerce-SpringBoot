@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Moje Zamówienia</title>
+    <link rel="stylesheet" href="userOrders.css">
+</head>
+<body>
+<div class="container">
+    <nav>
+        <a href="/userProfile/userProfile.html">← Wróć do profilu</a>
+    </nav>
+    <h1>Twoja Historia Zamówień</h1>
+
+    <div id="loading" class="message">Ładowanie zamówień...</div>
+    <div id="empty-cart" class="message" style="display:none;">Nie masz jeszcze żadnych zamówień.</div>
+
+    <table id="orders-table" style="display:none;">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Produkt</th>
+            <th>Ilość</th>
+            <th>Cena całkowita</th>
+            <th>Status</th>
+            <th>Adres dostawy</th>
+        </tr>
+        </thead>
+        <tbody id="orders-body">
+        </tbody>
+    </table>
+</div>
+<script src="userOrders.js"></script>
+</body>
+</html>
