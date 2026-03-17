@@ -31,21 +31,18 @@ public class CartController {
         Product product = productRepository.findById(Id).orElseThrow();
         AppUser user = userRepository.findByUsername(principal.getName()).orElseThrow();
         Optional<CartItem> ifexist = cartRepository.findByUserAndProduct(user,product);
+
         if(ifexist.isPresent()){
             CartItem exist = ifexist.get();
             exist.setQuantity(exist.getQuantity()+1);
             cartRepository.save(exist);
         }
 
-
-
         CartItem newItem = new CartItem();
         newItem.setProduct(product);
         newItem.setUser(user);
 
         cartRepository.save(newItem);
-
-
     }
     @GetMapping()
     public List<CartItem> getCartProduct(Principal principal) {
@@ -54,11 +51,23 @@ public class CartController {
     }
 
     @PutMapping("/{id}")
-    public CartItem updateCartQuantity(@PathVariable Long id,@RequestParam int newQuantity){
+    public Optional<CartItem> updateCartQuantity(@PathVariable Long id,@RequestParam int newQuantity){
         CartItem cartItem = cartRepository.findById(id).orElseThrow();
-        cartItem.setQuantity(newQuantity);
-        return cartRepository.save(cartItem);
+        int sumQuantity = cartItem.getQuantity() + newQuantity;
+        if(sumQuantity == 0){
+            cartRepository.deleteById(id);
+            return Optional.empty();
+        }else{
+            cartItem.setQuantity(sumQuantity);
+            return Optional.of(cartRepository.save(cartItem));
 
+        }
 
+    }
+    @DeleteMapping("/{id}")
+    public void deleteCartItem(@PathVariable Long id){
+        if(cartRepository.existsById(id)){
+            cartRepository.deleteById(id);
+        }
     }
 }

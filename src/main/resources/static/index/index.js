@@ -49,6 +49,7 @@ async function addToCart(productId) {
         if (response.ok) {
 
             alert("Dodano do koszyka.");
+            fetchCartItems();
         } else if (response.status === 401 || response.status === 403) {
 
             alert("Musisz być zalogowany, aby dodać produkt do koszyka!");

@@ -36,14 +36,15 @@ function renderCart(products) {
                     <p>${product.price} zł</p>
                 </div>
                 <div id="quantity">Ilość: ${item.quantity}</div>
-                <button id="plus-quantity" onclick="changeQuantity(${item.id},${item.quantity+1})">+</button>
-                <button id="minus-quantity" onclick="changeQuantity(${item.id},${item.quantity-1})">-</button>
+                <button id="plus-quantity" onclick="changeQuantity(${item.id},${1})">+</button>
+                <button id="minus-quantity" onclick="changeQuantity(${item.id},${-1})">-</button>
+                <button id="deleteCartItem" onclick="deleteCartItem(${item.id})">Usuń przedmiot z koszyka</button>
             </div>
         `;
     });
 
     subtotal.innerText = `${totalSum} zł`;
-    grandTotal.innerHTML = `${totalSum+15} zł`;
+    grandTotal.innerHTML = `${totalSum+shippingFee} zł`;
 
 
 }
@@ -64,5 +65,19 @@ async function changeQuantity(id,newQuantity){
     }
 
 
+}
+async function deleteCartItem(id){
+    const response = await fetch(`/api/cart/${id}`,{
+        method: 'DELETE'
+    });
+    if(response.ok){
+        alert("Usunięto przedmiot z koszyka");
+        fetchCartProducts()
+    }else{
+        alert("Bład podczas usuwania przedmiotu z koszyka.")
+    }
+}
+function proceedToCheckout(){
+    window.location.href="../checkout/checkout.html";
 }
 document.addEventListener('DOMContentLoaded', fetchCartProducts);
