@@ -8,10 +8,7 @@ import com.kam.e_com.Repository.OrderRepository;
 import com.kam.e_com.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.security.Principal;
@@ -45,6 +42,7 @@ public class OrderController {
             newOrder.setClientCred(order.getClientCred());
             newOrder.setPostCode(order.getPostCode());
             newOrder.setStatus("PENDING");
+            newOrder.setBuyer_id(currentUser.getId());
 
             newOrder.setQuantity(item.getQuantity());
             newOrder.setProduct(item.getProduct());
@@ -63,4 +61,5 @@ public class OrderController {
 
 
     }
+
 }

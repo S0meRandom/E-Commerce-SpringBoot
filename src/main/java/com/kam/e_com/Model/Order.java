@@ -37,6 +37,7 @@ public class Order {
     @Column(nullable=false, name="totalPrice")
     private BigDecimal price;
 
+    private long buyerId;
 
 
     public Long getId() {
@@ -96,5 +97,11 @@ public class Order {
     }
     public void setPrice(BigDecimal newPrice){
         this.price = newPrice;
+    }
+    public long getBuyer_id(){
+        return buyerId;
+    }
+    public void setBuyer_id(int newBuyer_id){
+        this.buyerId = newBuyer_id;
     }
 }
