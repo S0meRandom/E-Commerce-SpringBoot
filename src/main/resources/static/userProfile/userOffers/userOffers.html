@@ -41,6 +41,31 @@
 
     </div>
 </main>
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="edit-form">
+            <h2>Dane do edycji</h2>
+            <form id="edit-form">
+                <div class="form-group">
+                    <label>Nazwa Produktu</label>
+                    <input type="text" id="name" placeholder="Nowa Nazwa">
+                </div>
+                <div class="form-group">
+                    <label>Cena</label>
+                    <input type="number" id="price" placeholder="Nowa Cena">
+                </div>
+                <div class="form-row">
+                    <input type="text" id="stock_quantity" placeholder="Nowa ilość w magazynie">
+                    <textarea id="description" placeholder="Nowy opis produktu"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Edytuj</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <script src="/userProfile/userProfile.js"></script>
 <script src="userOffers.js"></script>
 </body>

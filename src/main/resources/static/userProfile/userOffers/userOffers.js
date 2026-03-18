@@ -42,6 +42,7 @@ function renderOffers(userOffers){
         <p>${offer.description}</p>
         <button onclick="deleteProduct(${offer.id})">Usuń Oferte</button>
         <button onclick="location.href='/product-page/product-page.html?id=${offer.id}'">Zobacz Oferte</button>
+        <button onclick="editOffer(${offer.id})">Edytuj Oferte</button>
         </div>`;
 
         container.innerHTML += productHTML;
@@ -59,10 +60,6 @@ async function deleteProduct(id) {
         alert("Błąd podczas usuwania produktu.");
     }
 }
-
-document.addEventListener("DOMContentLoaded", ()=>{
-    getUserData();
-});
 function calculateValue(offers){
     let sum = 0;
     offers.forEach(offer=>{
@@ -71,3 +68,20 @@ function calculateValue(offers){
     })
     return sum;
 }
+
+function editOffer(){
+    const modal = document.getElementById("editModal");
+    modal.style.display = "block";
+
+
+
+}
+function closeModal(){
+    const modal= document.getElementById('editModal');
+    modal.style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    getUserData();
+});
+
