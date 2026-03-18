@@ -63,6 +63,25 @@ async function addToCart(productId) {
         console.error("Błąd zapytania fetch:", error);
     }
 }
+
+async function searchProducts(){
+    const searchInput = document.getElementById('searchInput').value;
+    if(searchInput ===""){
+        fetchProducts();
+        }else{
+        const url = `/api/products/search?query=${encodeURIComponent(searchInput)}`;
+
+        const response = await fetch(url);
+
+        if(response.ok){
+            const offers = await response.json();
+            displayProducts(offers);
+        }
+    }
+
+
+
+}
 async function addProduct(){
     window.location.href="/add-product/add-product.html";
 }

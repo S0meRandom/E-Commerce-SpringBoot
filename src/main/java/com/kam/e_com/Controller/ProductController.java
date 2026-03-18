@@ -1,5 +1,6 @@
 package com.kam.e_com.Controller;
 
+import com.kam.e_com.Config.ProductService;
 import com.kam.e_com.Model.AppUser;
 import com.kam.e_com.Model.Product;
 import com.kam.e_com.Repository.ProductRepository;
@@ -20,6 +21,8 @@ public class ProductController {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private ProductService productService;
 
     @GetMapping
     public List<Product> getAllProducts(){
@@ -70,6 +73,12 @@ public class ProductController {
             return productRepository.save(product);
         }
         return null;
+
+    }
+
+    @GetMapping("/search")
+    public List<Product> searchProducts(@RequestParam String query){
+        return productRepository.searchProducts(query);
 
     }
 

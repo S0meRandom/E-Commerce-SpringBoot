@@ -8,11 +8,16 @@
 <body>
 <header>
     <div class="header-left">
-        <h1>Sklep Internetowy</h1>
-        <span>Koszyk: <strong id="cart-count">0</strong> przedmiotów</span>
-        <button onclick="accessCart()">Zobacz Koszyk</button>
-        <button onclick="addProduct()">Dodaj produkt do sklepu</button>
-
+        <div class="headerLeft-left">
+            <h1>Sklep Internetowy</h1>
+            <span>Koszyk: <strong id="cart-count">0</strong> przedmiotów</span>
+        </div>
+        <div class="headerLeft-right">
+            <button onclick="addProduct()">Dodaj produkt do sklepu</button>
+            <button onclick="accessCart()">Zobacz Koszyk</button>
+            <input type="text" id="searchInput" placeholder="Wyszukaj produkty">
+            <button id="search-btn"onclick="searchProducts()">Szukaj</button>
+        </div>
     </div>
     <div class="header-right">
         <button id="prof-btn" onclick="accessProfile()">Profil Użytkownika</button>

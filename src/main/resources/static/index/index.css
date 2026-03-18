@@ -93,3 +93,23 @@ header button {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
 }
+.headerLeft-right{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+#searchInput{
+    width: 50%;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+}
+#search-btn{
+    border-radius: 16px;
+    margin-left: -5px;
+    border: 2px solid;
+    padding: 5px 5px;
+}
