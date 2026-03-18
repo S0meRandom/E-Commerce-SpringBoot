@@ -56,21 +56,17 @@ header button {
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
 }
 .info-section{
-    flex: 1;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: column; /* Układa elementy jeden pod drugim */
+    align-items: flex-start; /* Gwarantuje wyrównanie do lewej */
+    gap: 12px;               /* Robi równe odstępy między rzędami */
+    padding-left: 20px;
 }
 .image-section{
     flex: 1;
 
 }
-.image-section img{
-    width: 100%;
-    border-radius: 12px;
-    object-fit: contain;
-    max-height: 500px;
-}
+
 .product-price{
     font-size: 2rem;
     font-weight: 800;
@@ -105,4 +101,77 @@ h1{
     background: white;
     padding: 40px;
     border-radius: 16px;
+}
+#image-section img{
+    border: 3px solid #3498db;
+    display: block;
+    max-width: 100%;
+    border-radius: 4px;
+}
+.product-container {
+    display: flex;
+    gap: 40px; /* Duży odstęp między zdjęciem a tekstem */
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Równe odstępy między wszystkimi elementami tekstu */
+    flex: 1;   /* Zajmij pozostałą przestrzeń */
+}
+
+/* Usuwamy domyślne odstępy, które rozpychają tekst nierówno */
+.info-section h1,
+.info-section p,
+.info-section h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.price-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #eee;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.cart-btn {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    font-size: 15px;
+}
+.buy-btn{
+    padding: 11px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+
+}
+.buy-btn:hover{
+    background-color: #2980b9;
+
+}
+
+.cart-btn:hover {
+    background-color: #2980b9;
 }

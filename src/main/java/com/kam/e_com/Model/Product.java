@@ -40,6 +40,7 @@ public class Product {
     }
 
     public String getImageUrl() {
+
         return imageUrl;
     }
 
@@ -59,8 +60,8 @@ public class Product {
         this.id = id;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageUrl(String newImageUrl) {
+        this.imageUrl = newImageUrl;
     }
 
     public void setStock_quantity(Integer stock_quantity) {

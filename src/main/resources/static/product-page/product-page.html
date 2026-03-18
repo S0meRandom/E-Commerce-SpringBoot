@@ -14,31 +14,35 @@
 </header>
 <main class="product-page">
     <div class="product-container">
-        <div class="image-section">
-            <img id="image" src="" alt="ładowanie">
-        </div>
-        <div class="info-section">
-            <div class="product-name">
-                <h1 id="product-name">Produkt</h1>
-            </div>
-            <div class="product-price">
-                <h2 id="product-price">Cena: </h2>
-            </div>
-            <div class="product-seller">
-                <h2 id="product-seller">Sprzedawca: </h2>
-            </div>
-            <div class="product-stock">
-                <h2 id="product-stock">Dostępna ilość: </h2>
-            </div>
-            <div class="product-description">
-                <h2>Opis Produktu:</h2>
-                <p id="product-description">Opis produktu</p>
-            </div>
-            <button class="cart-btn">Dodaj do koszyka</button>
-        </div>
-    </div>
 
-<script src="product-page.js"></script>
+        <div id="image-section">
+        </div>
+
+        <div class="info-section">
+            <h1 id="product-name" class="display-name">Produkt</h1>
+
+            <div class="price-tag">
+                <span id="product-price" class="price-value">Cena: 0.00 zł</span>
+            </div>
+
+            <div class="meta-info">
+                <p id="product-seller" class="seller-info">Sprzedawca: </p>
+                <p id="product-stock" class="stock-info">Dostępna ilość: </p>
+            </div>
+
+            <hr class="divider"> <div class="product-description">
+            <h3>Opis Produktu:</h3>
+            <p id="product-description">Ładowanie opisu...</p>
+        </div>
+
+            <div class="action-section">
+                <button class="cart-btn" onclick="addToCart()">Dodaj do koszyka</button>
+                <button class="buy-btn" onclick="buyNow()">Kup i zapłać</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="product-page.js"></script>
 </main>
 </body>
 </html>
