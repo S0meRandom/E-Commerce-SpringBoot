@@ -60,7 +60,6 @@ header button {
 
 }
 .product-card:hover{
-    transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(0,0,0,0.1);
     border-color: #cbd5e1;
 }
@@ -112,4 +111,16 @@ header button {
     margin-left: -5px;
     border: 2px solid;
     padding: 5px 5px;
+}
+.product-card button{
+    border-radius: 16px;
+    border: 2px solid;
+    background-color: #2563eb;
+    color: white;
+}
+.product-card button:hover{
+    background-color: dodgerblue;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+
 }
