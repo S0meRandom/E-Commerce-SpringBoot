@@ -23,8 +23,11 @@ function renderPage(productData){
     document.getElementById('product-description').innerText = productData.description;
 
     const imageSection = document.getElementById('image-section');
-    if(productData.imageUrl){
-        imageSection.innerHTML = `<img src="${productData.imageUrl}" alt="${productData.name}" style="max-width: 100%;">`;
+    const correctPath = productData.imageUrl.startsWith('/')
+        ? productData.imageUrl
+        : '/' + productData.imageUrl;
+    if(correctPath){
+        imageSection.innerHTML = `<img src="${correctPath}" alt="${productData.name}" style="max-width: 100%;">`;
     }else{
         imageSection.innerText = "Brak zdjęcia";
     }

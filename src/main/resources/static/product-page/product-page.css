@@ -57,9 +57,9 @@ header button {
 }
 .info-section{
     display: flex;
-    flex-direction: column; /* Układa elementy jeden pod drugim */
-    align-items: flex-start; /* Gwarantuje wyrównanie do lewej */
-    gap: 12px;               /* Robi równe odstępy między rzędami */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
     padding-left: 20px;
 }
 .image-section{
@@ -105,12 +105,13 @@ h1{
 #image-section img{
     border: 3px solid #3498db;
     display: block;
-    max-width: 100%;
+    max-width: 500px;
     border-radius: 4px;
+    max-height: 400px;
 }
 .product-container {
     display: flex;
-    gap: 40px; /* Duży odstęp między zdjęciem a tekstem */
+    gap: 40px;
     align-items: flex-start;
     max-width: 1000px;
     margin: 0 auto;
@@ -120,11 +121,11 @@ h1{
 .info-section {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Równe odstępy między wszystkimi elementami tekstu */
-    flex: 1;   /* Zajmij pozostałą przestrzeń */
+    gap: 15px;
+    flex: 1;
 }
 
-/* Usuwamy domyślne odstępy, które rozpychają tekst nierówno */
+
 .info-section h1,
 .info-section p,
 .info-section h3 {
@@ -174,4 +175,7 @@ h1{
 
 .cart-btn:hover {
     background-color: #2980b9;
+}
+.product-description{
+    margin-left: -40px;
 }

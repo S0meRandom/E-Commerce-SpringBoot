@@ -24,7 +24,8 @@ public class SecurityConfig {
                                 "/register/**",
                                 "/css/**",
                                 "/js/**",
-                                "/images/**"
+                                "/images/**",
+                                "/imagesFolder/**"
                         )
                         .permitAll().anyRequest().authenticated())
 

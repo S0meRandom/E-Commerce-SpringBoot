@@ -1,21 +1,22 @@
 document.getElementById('add-product-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    const productData = {
-        name: document.getElementById('name').value,
-        price: parseFloat(document.getElementById('price').value),
-        description: document.getElementById('description').value,
-        stock_quantity: parseInt(document.getElementById('stock_quantity').value)
-    };
-
-
+    const image = document.getElementById('file');
     const msgDiv = document.getElementById('msg');
+    const formData = new FormData();
+
+    if(image.files.length>0){
+        formData.append('file',image.files[0]);
+    }
+
+    formData.append('name',document.getElementById('name').value);
+    formData.append('price',document.getElementById('price').value);
+    formData.append('description',document.getElementById('description').value);
+    formData.append('stock_quantity',document.getElementById('stock_quantity').value);
 
     try {
         const response = await fetch('/api/products', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(productData)
+            body : formData
         });
 
         if (response.ok) {
