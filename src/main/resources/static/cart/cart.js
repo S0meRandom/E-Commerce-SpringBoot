@@ -26,11 +26,15 @@ function renderCart(products) {
         const product = item.product;
         const itemTotal = product.price* item.quantity;
         totalSum += itemTotal;
+        const correctPath = product.imageUrl.startsWith('/')
+            ? product.imageUrl
+            : '/' + product.imageUrl;
+
 
 
         container.innerHTML += `
             <div class="cart-product">
-                <img src="${product.image || '/placeholder.png'}" alt="">
+                <img src="${correctPath || '/placeholder.png'}" alt="">
                 <div class="product-details">
                     <h4>${product.name}</h4>
                     <p>${product.price} zł</p>
