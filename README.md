@@ -6,42 +6,42 @@ nauczyłem i mam nadzieje że będzie fundamentem mojej dalszej edukacji. W trak
 głównie w ramach css'a i rzeczy których nigdy nie robiłem i chciałem się dowiedzieć jak stworzyć.Projekt nie jest przeznaczony komercyjnie.
 
 ✨ Funkcje
--Rejestrowanie i Logowanie się do kont
--Tworzenie ofert sprzedaży przedmiotów, z obrazami, nazwą, ceną, opisem, ilością
--Przeglądanie i wyszukiwanie ofert, sprawdzanie szczegółów wystawionych ofert
--Dostęp do koszyka zakupów, którego można edytować i zapłacić za towary w nim
--Profil użytkownika, gdzie można sprawdzić swoje wystawione ofert(w tym edytować je lub usuwać),
+* Rejestrowanie i Logowanie się do kont
+* Tworzenie ofert sprzedaży przedmiotów, z obrazami, nazwą, ceną, opisem, ilością
+* Przeglądanie i wyszukiwanie ofert, sprawdzanie szczegółów wystawionych ofert
+* Dostęp do koszyka zakupów, którego można edytować i zapłacić za towary w nim
+* Profil użytkownika, gdzie można sprawdzić swoje wystawione ofert(w tym edytować je lub usuwać),
 sprawdzić statusów zamówionych przedmiotów, wylogować się
--Strony szczegółowe produktów, umożlwiają zobaczenie większej ilości szczegółów o produkcie i obrazu powiązanego z nim, oraz dodanie do koszyka
+* Strony szczegółowe produktów, umożlwiają zobaczenie większej ilości szczegółów o produkcie i obrazu powiązanego z nim, oraz dodanie do koszyka
 lub odrazu zamówienie
 
 🛠 Technologie
--Java 21 (Backend)
--SpringBoot (Backend)
--PostGreSql (Baza danych)
--JavaScript,HTML,CSS (Frontend)
+* Java 21 (Backend)
+* SpringBoot (Backend)
+* PostGreSql (Baza danych)
+* JavaScript,HTML,CSS (Frontend)
 
 🛠Opis API
--Rejestrowanie konta -> metoda POST w userControllerze
--Logowanie konta -> Auth w Spring Security
--Wystawianie produktu -> methoda POST w productControllerze
--Edytownaie Prodktu -> metoda PUT w productControllerze
--Usuwanie produktu -> metoda Delete w productControllerze
--Dodawanie do koszyka -> metoda POST w cartControllerze
--Usuwanie z koszyka -> methoda PUT w cartControllerze
--Edytowanie ilości przedmiotów w koszyku -> metoda PUT w cartControllerze
--Wczytywanie koszyka -> methoda GET w cartControllerze
--Kupowanie przedmiotów -> methoda POST w orderControllerze
--Sprawdzanie statusów -> methoda GET w orderControllerze
+* Rejestrowanie konta -> metoda POST w userControllerze
+* Logowanie konta -> Auth w Spring Security
+* Wystawianie produktu -> methoda POST w productControllerze
+* Edytownaie Prodktu -> metoda PUT w productControllerze
+* Usuwanie produktu -> metoda Delete w productControllerze
+* Dodawanie do koszyka -> metoda POST w cartControllerze
+* Usuwanie z koszyka -> methoda PUT w cartControllerze
+* Edytowanie ilości przedmiotów w koszyku -> metoda PUT w cartControllerze
+* Wczytywanie koszyka -> methoda GET w cartControllerze
+* Kupowanie przedmiotów -> methoda POST w orderControllerze
+* Sprawdzanie statusów -> methoda GET w orderControllerze
 
 
 
 🛠Jak uruchomić 🛠Wymagania: Java,PostGreSql,IDE
-1.Sklonuj repozytorium
-2.Powiąż application.propertires z twoim PostGreSql
-3.Stwórz folder imagesFolder, w folderze pliku(root)
-4.Odpal aplikacje w IDE
-5. Wejdź na localhost:8080
+* 1.Sklonuj repozytorium
+* 2.Powiąż application.propertires z twoim PostGreSql
+* 3.Stwórz folder imagesFolder, w folderze pliku(root)
+* 4.Odpal aplikacje w IDE
+* 5. Wejdź na localhost:8080
 
 📷Zdjęcia ekranu
 
